@@ -1,48 +1,61 @@
 import React, { Component } from 'react';
-import {NavDropdown} from 'react-bootstrap';
+import { NavDropdown } from 'react-bootstrap';
 import Footer from './footer';
+import Category from "./Category";
+
+import prospecting from '../../assets/prospecting.svg';
+import homeDecor from '../../assets/homeDecor.svg';
+import guns from '../../assets/guns.svg';
+import westernWear from '../../assets/westernWear.svg';
+import cabins from '../../assets/cabins.svg';
+import horses from '../../assets/horses.svg';
+import cattle from '../../assets/cattle.svg';
+import farmSupplies from '../../assets/farmSupplies.svg';
+import hats from '../../assets/hats.svg';
+
+const featured = (title, href) => {
+    return <a className="row dropdown-item-primary mt-2" href={ href }>{ title }</a>
+};
 
 class Products extends Component {
-
     render() {
         return (
             <NavDropdown title="Products" className="menu-dropdown">
-                <div className="dropdown m-4" id="dropdown-products">
-                    <div className="row mb-4">
-                        <div className="col dropdown-col-header">Featured</div>
-                        <div className="col dropdown-col-header">All Categories</div>
-                        <div className="col"> </div>
-                        <div className="col"> </div>
-                    </div>
-
-                    <div className="row mb-3">
-
-                        <a className="col dropdown-item-primary"  href="/yee-haw-monday">Yee-Haw Monday</a>
-
-                        <img
-                            className="dropdown-item-icon"
-                            src="home.svg"
-                        />
-                        <a className="col dropdown-item-sub" href="/Houses">Houses</a>
-                        <a className="col dropdown-item-sub" href="/">Cactuses</a>
-                        <a className="col dropdown-item-sub" href="/">Boots</a>
-                    </div>
-
+                <div className="dropdown m-4 navbar-dropdown-menu" id="dropdown-products">
                     <div className="row">
-                        <a className="col dropdown-item-primary"  href="/gift-ideas">Gift Ideas</a>
-                        <a className="col dropdown-item-sub" href="/">Guns</a>
-                        <a className="col dropdown-item-sub" href="/">Hats</a>
-                        <a className="col dropdown-item-sub" href="/">Horses</a>
+                        <div className="col-2" id="products-featured-col">
+                            <div className="row dropdown-col-header">Featured</div>
+                            { featured('Yee-Haw Monday', '/yee-haw-monday') }
+                            { featured('Western Deals', '/western-deals') }
+                            { featured('Gift Ideas', '/gift-ideas') }
+                            { featured('Western Favorites', '/western-favorites') }
+                        </div>
+                        <div className="col ml-4">
+                            <div className="row dropdown-col-header">All Categories</div>
+                            {Category('Cabins', cabins, '/cabins')}
+                            {Category('Prospecting', prospecting, '/prospecting')}
+                            {Category('Home Decor', homeDecor, '/home-decor')}
+
+                        </div>
+                        <div className="col">
+                            <div className="row"><br/> </div>
+                            { Category('Western Wear', westernWear, '/western-wear') }
+                            { Category('Horses', horses, '/horses') }
+                            { Category('Guns', guns, '/guns') }
+                        </div>
+                        <div className="col">
+                            <div className="row"><br/> </div>
+                            { Category('Cattle', cattle, '/cattle') }
+                            { Category('Farm Supplies', farmSupplies, '/farm-supplies') }
+                            { Category('Hats', hats, '/hats') }
+                        </div>
+
                     </div>
-
-
                 </div>
-
                 <Footer/>
             </NavDropdown>
         );
     }
 }
-
 
 export default Products;

@@ -9,6 +9,7 @@ import Account from "./dropdowns/account";
 import ShoppingHistory from "./dropdowns/shoppingHistory";
 import OrderStatus from "./dropdowns/orderStatus";
 
+
 const Menu = () => {
     // TODO: Add content to drop down items
 
@@ -25,6 +26,7 @@ const Menu = () => {
                 <Account/>
                 <ShoppingHistory/>
                 <OrderStatus/>
+                <Nav.Link href="/saved-items">Saved Items</Nav.Link>
             </Nav>
         </Navbar>
     )
