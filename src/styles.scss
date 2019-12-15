@@ -1,8 +1,18 @@
 #navbar-container {
-    $background-color: #0046be;
-    $border-color: rgb(73,118,230);
+    background-color: #0046be;
+}
+#navbar-app{
+    @media (min-width: 1600px) {
+        width: 1600px;
+        margin: auto;
+    }
+
+    $blue-primary: #0046be;
+    $blue-border: rgb(73,118,230);
+    $grey-border: rgb(197, 203, 213);
     font-family: "arial", sans-serif;
 
+    background-color: $blue-primary;
     /* ----------------------------------------------------------------------------------------------- */
     // Grid
 
@@ -12,12 +22,14 @@
             "l h h h h h h h h h h h h"
             "l n n n n n n n n n n n n"
             "m m m m m m m m m m m m m";
-    background-color: $background-color;
+    background-color: $blue-primary;
 
     #navbar {grid-area: n;}
     #header {grid-area: h;}
     #logo-container {grid-area: l;}
     #menu-container {grid-area: m;}
+
+
 
     /* ----------------------------------------------------------------------------------------------- */
 
@@ -30,9 +42,55 @@
     }
 
     #menu-container {
-        border-top: 1px solid $border-color ;
+        border-top: 1px solid $blue-border ;
     }
 
+    #navbar {
+        #searchBar {
+            width: 40vw;
+        }
+
+        #search-list-container{
+            color: black;
+            position: absolute;
+            background-color: white;
+            height: 420px;
+            width: 40vw;
+            border: 1px solid rgb(197, 203, 213);
+            z-index: 10;
+            overflow: hidden;
+            padding: 5px;
+
+            .search-item {
+                font-size: 14px;
+                color: $blue-primary;
+                padding: 5px;
+            }
+            .search-item:hover {
+                text-decoration: none;
+                background-color: #D9E0EB;
+            }
+
+            .row.search-list {
+                border-left: 1px solid $grey-border;
+            }
+            .search-list {
+
+                .image{
+                    max-height: 75px;
+                    max-width: 75px;
+                    height: auto;
+                    width: auto;
+                    align-content: center;
+                }
+                .link {
+                    font-size: 14px;
+                }
+            }
+
+        }
+    }
+    /* ----------------------------------------------------------------------------------------------- */
     .navbar-logo {
         color: white;
         font-family: "Passion One", sans-serif;
@@ -49,15 +107,23 @@
 
 
     .navbar-localstore {
-        border-right: 1px solid $border-color;
-    }
-
-    #searchBar {
-        width: 40vw;
+        border-right: 1px solid $blue-border;
     }
 
     /* ----------------------------------------------------------------------------------------------- */
     /* Menu */
+
+    .navbar-dropdown-menu {
+        width: 1032px;
+        height: 150px;
+    }
+
+    //.navbar-dropdown-menu {
+    //    position: absolute;
+        //top: 10px;
+    //    background-color: red;
+    //    border: 5px solid yellow;
+    //}
 
     #dropdown-products {
         width: 1032px;
@@ -69,11 +135,20 @@
         height: 350px;
     }
 
-    .navbar-dropdown-menu {
-        width: 1032px;
-        height: 150px;
+    //#dropdown-account {
+    //    position: absolute;
+    //    top: 10px;
+    //    right: 25px;
+    //    width: 700px;
+    //    background-color: red;
+    //    border: 5px solid yellow;
+    //}
+    #account-row{
+        position: relative;
     }
-
+    .dropdown-menu.show{
+        border: 0;
+    }
     #products-featured-col {
         border-right: 1px solid rgb(197, 203, 213);
     }
@@ -96,6 +171,7 @@
     .dropdown-item-icon {
         height: 24px;
     }
+
 
     .dropdown-footer, .footer-link {
         background-color: rgb(224, 230, 239);
@@ -154,5 +230,26 @@
 
     }
 
+    #dropdown-services {
+        height: 250px;
+        width: 900px;
+        .title{
+            color: #55555a;
+            font-weight: bold;
+            font-size: 15px;
+            border-bottom: 1px solid rgb(197, 203, 213);
+            padding-bottom: 5px;
+        }
+        .link{
+            font-size: 13px;
+        }
+        #left-container {
+            border-right: 1px solid rgb(197, 203, 213);
+        }
+        #services-banner{
+            padding: 10px;
+        }
+
+    }
 }
 
